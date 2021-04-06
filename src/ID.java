@@ -23,7 +23,7 @@ public class ID {
 	}
 	
 	public void printInfo() {
-		System.out.println("Name :" + name + "\n ID :" + id + "\n Password =" + password + "\n Mail =" +mail + "\n Phone ="+phone);
+		System.out.println("Name :" + name + "\n ID :" + id + "\n Password :" + password + "\n Mail :" +mail + "\n Phone :"+phone);
 		
 	}
 }
