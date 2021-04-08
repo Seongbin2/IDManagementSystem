@@ -1,10 +1,10 @@
+
 import java.util.Scanner;
 
 public class MenuManager {
 
 	public static void main(String[] args) {
-		
-		
+
 		Scanner input = new Scanner (System.in);
 		IDManagement idmanagement = new IDManagement(input);
 		int num = -1;
@@ -14,7 +14,7 @@ public class MenuManager {
 			System.out.println("1. Add User ID");
 			System.out.println("2. Delete User ID");
 			System.out.println("3. Edit User ID");
-			System.out.println("4. View User ID");
+			System.out.println("4. View User IDs");
 			System.out.println("5. Exit");
 			System.out.println("Select one number between 1-5");
 			num = input.nextInt();
@@ -29,7 +29,7 @@ public class MenuManager {
 				idmanagement.editID();
 			}
 			else if (num == 4) {
-				idmanagement.viewID();
+				idmanagement.viewIDs();
 			}
 			else {
 				continue;

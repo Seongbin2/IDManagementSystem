@@ -1,56 +1,118 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
+import ID.ID;
+import ID.SilverMember;
+
 public class IDManagement {
-	ID id;
+	ArrayList<ID> ids = new ArrayList<ID>();
+
 	Scanner input;
 	IDManagement(Scanner input){
 		this.input = input;
 	}
 	public void addID() {
-		id = new ID();
+		int type = 0;
+		ID id;
+		while (type != 1 && type != 2) {
+			System.out.print("1. for Gold Member  ");
+			System.out.print("2. for Silver Member");
+
+			System.out.print("Select Number For ID TYPE between 1 and 2 : ");
+			type = input.nextInt();
+			if (type == 1) {
+				id = new ID();
+				id.getUserInput(input);
+				ids.add(id);
+				break;
+			}
+			else if (type == 2) {
+				id = new SilverMember();
+				id.getUserInput(input);
+				ids.add(id);
+				break;
+			}
+			else {
+				System.out.print("Select Number For ID TYPE between 1 and 2 : ");
+			}
+		}
+
 		Scanner input = new Scanner (System.in);
-		System.out.print("Name : ");
-		id.name = input.next();
-		System.out.print("New ID: ");
-		id.id = input.nextInt(); 
-		System.out.print("New Password(only number) : ");
-		id.password= input.nextInt();
-		System.out.print("E-mail address : ");
-		id.mail = input.next();
-		System.out.print("Phone Number : ");
-		id.phone = input.next();
+ 
+	  //id의 이름겹침 때문에 id1 으로 임의설정
+
 	}
 
 	public void deleteID() {
-
 		System.out.print("ID : ");
 		int User_id = input.nextInt();
-		if(id == null) {
-			System.out.println("The ID has not been registred!!");
-			return;
+		int index = -1;
+		for (int i=0; i<ids.size(); i++) {
+			if (ids.get(i).getId() == User_id) {
+				index = i;
+				break;
+			}
 		}
-		if (id.id == User_id) {
-			id = null;
-			System.out.println("The ID '" + id + "' is deleted!");
+		if (index >= 0) {
+			ids.remove(index);
+			System.out.println("The ID" + User_id + "is deleted!");
+		}
+		else {
+			System.out.println("The ID has not been registered");
+			return;
 		}
 		
 	}
 	public void editID () {
 
-		System.out.print("ID : ");
+		System.out.print("Your ID :");
 		int User_id = input.nextInt();
-		if (id.id == User_id) {
-		
-			System.out.println("The ID to be edited is " + User_id);
+		for (int i=0; i<ids.size(); i++) {
+			ID id = ids.get(i);
+			if(ids.get(i).getId() == User_id) {
+				int num = -1;
+				while (num !=5) {
+					System.out.println("** ID Info Edit Menu **");
+					System.out.println(" 1. Edit Name");
+					System.out.println(" 2. Edit Password");
+					System.out.println(" 3. Edit E-mail");
+					System.out.println(" 4. Edit Phonenumber");
+					System.out.println(" 5. EXIT");
+					System.out.println("** SELECT ONE NUMBER BETWEEN 1-5 **");
+					num = input.nextInt();
+					if (num == 1) {
+						System.out.print("Name : ");
+						String id2 = input.next();
+						id.setName(id2);
+					}
+					else if(num == 2) {
+						System.out.print("Password : ");
+						int password = input.nextInt();
+						id.setPassword(password);
+					}
+					else if(num == 3) {
+						System.out.print("E-mail :");
+						String mail = input.next();
+						id.setMail(mail);
+					}
+					else if(num==4) {
+						System.out.print("Phone number :");
+						String phone = input.next();
+						id.setPhone(phone);
+					}
+					else {
+						continue;
+					}
+				}
+				break;
+			}
 		}
-	}
+	} 
 	
-	public void viewID () {
+	public void viewIDs () {
 
-		System.out.print("ID : ");
-		int User_id = input.nextInt();
-		if (id.id == User_id) {
-			id.printInfo();
+		for (int i=0; i<ids.size(); i++) {
+			ids.get(i).printInfo();
 		}
 	}
 }
