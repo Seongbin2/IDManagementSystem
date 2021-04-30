@@ -14,6 +14,9 @@ public class ID {
 	public ID() {
 
 	}
+	public ID(UserType type) {
+		this.type = type;
+	}
 	
 	public UserType getType() {
 		return type;
@@ -75,9 +78,23 @@ public class ID {
 		this.mail = mail;
 		this.phone = phone;
 	}
-	
+
 	public void printInfo() {
-		System.out.println("Name :" + name + "\n ID :" + id + "\n Password :" + password + "\n Mail :" +mail + "\n Phone :"+phone);
+		String skind = "none";
+		switch (this.type) {
+		case GoldMember:
+			skind = "GOLD";
+			break;
+		case SilverMember:
+			skind = "SILVER";
+			break;
+		case BronzeMember:
+			skind = "BRONZE";
+			break;
+		default:
+			
+		}
+		System.out.println("UserType :" + skind + "\n Name :" + name + "\n ID :" + id + "\n Password :" + password + "\n Mail :" +mail + "\n Phone :"+phone);
 		
 	}
 	
