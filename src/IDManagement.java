@@ -4,6 +4,7 @@ import java.util.Scanner;
 import ID.BronzeMember;
 import ID.ID;
 import ID.SilverMember;
+import ID.UserType;
 
 public class IDManagement {
 	ArrayList<ID> ids = new ArrayList<ID>();
@@ -13,29 +14,30 @@ public class IDManagement {
 		this.input = input;
 	}
 	public void addID() {
-		int type = 0;
+		int types = 0;
 		ID id;
-		while (type != 1 && type != 2 && type != 3) {
+		while (types != 1 && types != 2 && types != 3) {
 			System.out.println("1. for Gold Member  ");
 			System.out.println("2. for Silver Member");
 			System.out.println("3. for Bronze Member");
 
 			System.out.print("Select Number For ID TYPE between 1 ,2 and 3 : ");
-			type = input.nextInt();
-			if (type == 1) {
+			types = input.nextInt();
+			if (types == 1) {
 				id = new ID(UserType.GoldMember);
 				id.getUserInput(input);
 				ids.add(id);
 				break; 
 			}
-			else if (type == 2) {
+			
+			else if (types == 2) {
 				id = new SilverMember(UserType.SilverMember);
 				id.getUserInput(input);
 				ids.add(id);
 				break;
 			}
 			
-			else if (type == 3) {
+			else if (types == 3) {
 				id = new BronzeMember(UserType.BronzeMember);
 				id.getUserInput(input); 
 				ids.add(id);
@@ -117,6 +119,7 @@ public class IDManagement {
 			}
 		}
 	} 
+	
 	
 	public void viewIDs () {
 

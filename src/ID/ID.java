@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 public class ID {
 
-	UserType type = UserType.GoldMember;
-	String name;
-	int id;
-	int password;
-	String mail;
-	String phone;
+	protected UserType type = UserType.GoldMember;
+	protected String name;
+	protected int id;
+	protected int password;
+	protected String mail;
+	protected String phone;
 	  
 	public ID() {
 

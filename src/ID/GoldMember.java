@@ -35,8 +35,9 @@ public class GoldMember extends ID {
 				break;
 			}
 		}
-	System.out.println();
-
+		System.out.println("Phone number :");
+		String phone = input.next();
+		this.setPhone(phone);
 	}
 	
 }
