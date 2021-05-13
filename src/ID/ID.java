@@ -2,7 +2,9 @@ package ID;
 
 import java.util.Scanner;
 
-public class ID {
+import Exception.EmailFormatException;
+
+public abstract class ID implements IDinput{
 
 	protected UserType type = UserType.GoldMember;
 	protected String name;
@@ -54,7 +56,12 @@ public class ID {
 		return mail;
 	}
 
-	public void setMail(String mail) {
+	public void setMail(String mail) throws EmailFormatException {
+		
+		if (!mail.contains("@") && !mail.equals("")) {
+			throw new EmailFormatException();
+		}
+		
 		this.mail = mail;
 	}
 
@@ -79,7 +86,46 @@ public class ID {
 		this.phone = phone;
 	}
 
-	public void printInfo() {
+	public abstract void printInfo();
+	
+	public void setUser_ID( Scanner input) {
+		System.out.print("ID : ");
+		int id2 = input.nextInt();
+		this.setId(id2);
+	}
+	
+	public void setUser_Name(Scanner input) {
+		System.out.print("Name : ");
+		String id2 = input.next();
+		this.setName(id2);
+	}
+	
+	public void setUser_Password(Scanner input) {
+		System.out.print("Password : ");
+		int password = input.nextInt();
+		this.setPassword(password);
+	}
+	
+	public void setUser_Email(Scanner input) {
+		String mail = "";
+		while (!mail.contains("@")) {
+			try {
+			System.out.print("E-mail :");
+			mail = input.next();
+			
+				this.setMail(mail);
+			} catch (EmailFormatException e) {
+				System.out.println("Wrong Email address! Put the E-mail address taht contains '@'");
+			}
+		}
+	}
+	public void setUser_Phonenumber( Scanner input) {
+		System.out.print("Phone number :");
+		String phone = input.next();
+		this.setPhone(phone);
+	}
+	
+	public String getKindString() {
 		String skind = "none";
 		switch (this.type) {
 		case GoldMember:
@@ -92,27 +138,9 @@ public class ID {
 			skind = "BRONZE";
 			break;
 		default:
-			
 		}
-		System.out.println("UserType :" + skind + "\n Name :" + name + "\n ID :" + id + "\n Password :" + password + "\n Mail :" +mail + "\n Phone :"+phone);
-		
+		return skind;
 	}
 	
-	public void getUserInput(Scanner input) {
-		System.out.print("Name : ");
-		String name = input.next();
-		this.setName(name);
-		System.out.print("New ID: ");
-		int id1 = input.nextInt(); 
-		this.setId(id1);
-		System.out.print("New Password(only number) : ");
-		int password = input.nextInt();
-		this.setPassword(password);
-		System.out.print("E-mail address : ");
-		String mail = input.next();
-		this.setMail(mail);
-		System.out.print("Phone Number : ");
-		String phone = input.next();
-		this.setPhone(phone);
-	}
+	
 }
