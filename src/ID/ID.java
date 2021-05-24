@@ -1,11 +1,17 @@
 package ID;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 import Exception.EmailFormatException;
 
-public abstract class ID implements IDinput{
+public abstract class ID implements IDinput, Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3264783694369643439L;
+	
 	protected UserType type = UserType.GoldMember;
 	protected String name;
 	protected int id;

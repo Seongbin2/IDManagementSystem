@@ -1,18 +1,21 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import ID.BronzeMember;
 import ID.GoldMember;
-import ID.ID;
 import ID.IDinput;
 import ID.SilverMember;
 import ID.UserType;
 
-public class IDManagement {
+public class IDManagement implements Serializable{
+	
+	private static final long serialVersionUID = -8588681312168756223L;
+
 	ArrayList<IDinput> ids = new ArrayList<IDinput>();
 
-	Scanner input;
+	transient Scanner input;
 	
 	IDManagement(Scanner input){
 		this.input = input;
