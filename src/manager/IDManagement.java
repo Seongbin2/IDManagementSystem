@@ -1,3 +1,4 @@
+package manager;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -5,6 +6,7 @@ import java.util.Scanner;
 
 import ID.BronzeMember;
 import ID.GoldMember;
+import ID.ID;
 import ID.IDinput;
 import ID.SilverMember;
 import ID.UserType;
@@ -142,6 +144,13 @@ public class IDManagement implements Serializable{
 	}
 	
 	
+	public int size() {
+		return ids.size();
+	}
+	
+	public IDinput get(int index) {
+		return (ID) ids.get(index);
+	}
 	
 	public void showEditMenu() {
 		System.out.println("** ID Info Edit Menu **");

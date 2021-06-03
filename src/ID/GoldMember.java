@@ -26,5 +26,6 @@ public class GoldMember extends ID {
 		System.out.println("UserType :" + skind + "\n Name :" + name + "\n ID :" + id + "\n Password :" + password + "\n Mail :" +mail + "\n Phone :"+phone);
 		
 	}
-	
+
+
 }

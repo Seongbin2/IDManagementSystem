@@ -1,3 +1,4 @@
+package manager;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -7,6 +8,7 @@ import java.io.ObjectOutputStream;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import GUI.WindowFrame;
 import log.EventLogger;
 
 public class MenuManager {
@@ -21,6 +23,8 @@ public class MenuManager {
 		if(idmanagement == null) {
 			idmanagement = new IDManagement(input);
 		}		
+		
+		WindowFrame frame = new WindowFrame(idmanagement);
 		selectMenu(input, idmanagement);
 		putObject(idmanagement, "idmanagement.ser");
 	}

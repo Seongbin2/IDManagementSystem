@@ -7,10 +7,14 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
-public class UserIDAdder extends JFrame{
+public class UserIDAdder extends JPanel{
 
-	public UserIDAdder() {
+	WindowFrame frame;
+	
+	public UserIDAdder(WindowFrame frame) {
 
+		this.frame = frame;
+		
 		JPanel panel = new JPanel();
 		panel.setLayout(new SpringLayout());
 		
@@ -43,10 +47,9 @@ public class UserIDAdder extends JFrame{
 		
 		SpringUtilities.makeCompactGrid(panel, 5, 2, 6, 6, 6, 6);
 		
-		this.setSize(300, 300);
-		this.setContentPane(panel);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setVisible(true);
+
+		this.add(panel);
+
 		
 	}
 

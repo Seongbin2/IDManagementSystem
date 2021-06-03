@@ -23,4 +23,6 @@ public class SilverMember extends NohaveEmail {
 		System.out.println("UserType :" + skind + "\n Name :" + name + "\n ID :" + id + "\n Password :" + password + "\n Parent's Mail :" + mail + "\n Parent's Phone :"+phone );
 		
 	}
+
+
 }

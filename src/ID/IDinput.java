@@ -10,6 +10,12 @@ public interface IDinput {
 	
 	public void setId(int id);
 
+	public String getName();
+	
+	public String getMail();
+	
+	public String getPhone();
+	
 	public void setName(String name);
 	
 	public void setPassword(int password);
