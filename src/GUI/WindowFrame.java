@@ -21,7 +21,7 @@ public class WindowFrame extends JFrame{
 		
 		this.idmanagement = idmanagement;		
 		menuselection = new MenuSelection(this);
-		useridadder = new UserIDAdder(this);
+		useridadder = new UserIDAdder(this, this.idmanagement);
 		userinfoviewer = new UserinfoViewer(this, this.idmanagement);
 
 		

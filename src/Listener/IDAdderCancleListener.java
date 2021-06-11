@@ -9,22 +9,19 @@ import GUI.UserIDAdder;
 import GUI.UserinfoViewer;
 import GUI.WindowFrame;
 
-public class ButtonAddListener implements ActionListener {
+public class IDAdderCancleListener implements ActionListener {
 
 	WindowFrame frame;
 	
-	public ButtonAddListener(WindowFrame frame) {
+	public IDAdderCancleListener(WindowFrame frame) {
 		this.frame = frame;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		//JButton b = (JButton)e.getSource();
-		//UserIDAdder adder = frame.getUseridadder();
-		//frame.setupPanel(adder);
-
+		
 		frame.getContentPane().removeAll();
-		frame.getContentPane().add(frame.getUseridadder());
+		frame.getContentPane().add(frame.getMenuselection());
 		frame.revalidate();
 		frame.repaint();
 		

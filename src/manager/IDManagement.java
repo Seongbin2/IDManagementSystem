@@ -23,6 +23,18 @@ public class IDManagement implements Serializable{
 		this.input = input;
 	}
 	
+	public void addID(String id, String name, String email, String phone) {
+		IDinput idinput = new GoldMember(UserType.GoldMember);
+		idinput.getUserInput(input);
+		ids.add(idinput);
+	}
+	
+	public void addID(IDinput idinput) {
+	
+		ids.add(idinput);
+	}
+	
+	
 	public void addID() {
 		int types = 0;
 		IDinput idinput;

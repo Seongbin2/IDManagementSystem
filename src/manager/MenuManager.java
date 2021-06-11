@@ -130,7 +130,7 @@ public static void putObject(IDManagement idmanagement, String filename) {
 		e.printStackTrace();
 	}
 	
-	}
+}
 
 }
 

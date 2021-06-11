@@ -7,13 +7,19 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
+import Listener.IDAdderCancleListener;
+import Listener.UserAdderListener;
+import manager.IDManagement;
+
 public class UserIDAdder extends JPanel{
 
 	WindowFrame frame;
+	IDManagement idmanagement;
 	
-	public UserIDAdder(WindowFrame frame) {
+	public UserIDAdder(WindowFrame frame, IDManagement idmanagement) {
 
 		this.frame = frame;
+		this.idmanagement = idmanagement;
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(new SpringLayout());
@@ -39,16 +45,26 @@ public class UserIDAdder extends JPanel{
 		JLabel labelPhone = new JLabel("Phone: ", JLabel.TRAILING);
 		JTextField fieldPhone = new JTextField(10);
 		labelPhone.setLabelFor(fieldPhone);
+		
+		JButton savebutton = new JButton("save");
+		savebutton.addActionListener(new UserAdderListener(fieldID,fieldName,
+				fieldEmail,fieldPhone, idmanagement));
+		
+		JButton canclebutton = new JButton("cancle");
+		canclebutton.addActionListener(new IDAdderCancleListener(frame));
+		
 		panel.add(labelPhone);
 		panel.add(fieldPhone);
 		
-		panel.add(new JButton("save"));
-		panel.add(new JButton("cancle"));
+		panel.add(savebutton);
+		panel.add(canclebutton);
 		
 		SpringUtilities.makeCompactGrid(panel, 5, 2, 6, 6, 6, 6);
 		
 
 		this.add(panel);
+		this.setVisible(true);
+		
 
 		
 	}
